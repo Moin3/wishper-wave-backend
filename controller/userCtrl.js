@@ -113,3 +113,13 @@ export const googleLogin=async (req,res)=>{
         return res.status(500).json({msg: err.message})
     }
 }
+
+
+export const getUser = async (req, res) => {
+    try {
+        const user = await Users.find({});
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+}
