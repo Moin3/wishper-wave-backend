@@ -23,8 +23,6 @@ router.post('/message/add', newMessage);
 router.get('/message/get/:id', getMessage);
 
 router.post('/file/upload',upload.single('file'), uploadFile);
-// router.get('/images/:id', getImage);
-// router.get('/file/:filename', getImage);
 
 
 
