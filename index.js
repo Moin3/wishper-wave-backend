@@ -9,13 +9,8 @@ const app=express()
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-// app.use(
-//     cors({
-//           origin: "http://localhost:5173",
-//           methods: "GET,POST,PUT,DELETE",
-//           credentials: true,
-//       })
-//   )
+app.use(express.static('public'))
+
 app.use('/',Routes)
 
 Connection()
