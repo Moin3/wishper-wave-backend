@@ -3,8 +3,9 @@ import Connection from './database/db.js';
 import Routes from './routes/Router.js';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import { app, server } from './socket/socket.js';
 
-const app=express()
+// const app=express()
 
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,5 +18,5 @@ Connection()
 
 const PORT=8000;
 
-app.listen(PORT,()=>console.log(`Server is running successfully on PORT ${PORT}`))
+server.listen(PORT,()=>console.log(`Server is running successfully on PORT ${PORT}`))
 
