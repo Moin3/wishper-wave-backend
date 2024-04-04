@@ -1,5 +1,6 @@
 import Message from "../models/msgModel.js";
 import Conversation from '../models/conversationModel.js'
+// import { getRecieverSocketId,io } from "../socket/socket.js";
 
 
 export const newMessage = async (request, response) => {
@@ -7,6 +8,16 @@ export const newMessage = async (request, response) => {
         const newMessage = new Message(request.body);
         await newMessage.save();
         await Conversation.findByIdAndUpdate(request.body.conversationId, { message: request.body.text });
+
+        // socket functionality will goes here
+        //  const recieverSocketId=getRecieverSocketId(request.body.recieverId)
+        //  console.log(recieverSocketId)
+        // if(recieverSocketId){
+        //     console.log(recieverSocketId)
+        //     io.to(recieverSocketId).emit("newMessage",newMessage)
+        //     io.emit("newMessage",newMessage)
+        // }
+
         response.status(200).json({
             newMessage,
             msg:"Message has been sent successfully"

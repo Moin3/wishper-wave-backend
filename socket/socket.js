@@ -10,7 +10,12 @@ const io=new Server(server,{
         origin:['http://localhost:5173'],
         methods:["GET","POST"]
     }
-})
+});
+
+
+export const getRecieverSocketId=(revieverId)=>{
+    return userSocketMap[revieverId]
+}
 
 const userSocketMap={} //userId:socketId
 
@@ -20,10 +25,25 @@ io.on('connection',(socket)=>{
     const userId=socket.handshake.query.userId;
     if(userId !== "undefined") userSocketMap[userId]=socket.id;
 
-
     io.emit("getOnlineUsers",Object.keys(userSocketMap));
 
+        //socket io for send message 
+        socket.on('sendMessage', (data) => {
+            const recieverSocketId=getRecieverSocketId(data.recieverId)
+            console.log(recieverSocketId)
+            if(recieverSocketId){
+                // io.to(recieverSocketId).emit("newMessage",newMessage)
+                io.to(recieverSocketId).emit('getMessage', data)
+                // io.emit("getMessage",data)
+            }
+            // console.log(data)
+            // const user = getUser(data.recieverId);
+            // console.log(user)
+            // console.log(getUser(data.recieverId))
+            // io.to(userSocketMap[userId]).emit('getMessage', data)
+        })
 
+// /////////////
     socket.on("disconnect",()=>{
         console.log("User disconnected",socket.id);
         delete userSocketMap[userId];

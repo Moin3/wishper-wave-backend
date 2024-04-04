@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
   },
   avatar: {
     type: String,
-    default: 'https://res.cloudinary.com/richblogcloud/image/upload/v1677128588/profile.png'
+    // default: 'https://res.cloudinary.com/richblogcloud/image/upload/v1677128588/profile.png'
   },
   type: {
     type: String,
