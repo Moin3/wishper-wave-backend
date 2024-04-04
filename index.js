@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.static('public'))
 
 app.use('/',Routes)
-app.get('/',"hello world")
+
 
 Connection()
 
