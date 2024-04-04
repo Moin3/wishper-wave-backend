@@ -32,18 +32,10 @@ io.on('connection',(socket)=>{
             const recieverSocketId=getRecieverSocketId(data.recieverId)
             console.log(recieverSocketId)
             if(recieverSocketId){
-                // io.to(recieverSocketId).emit("newMessage",newMessage)
                 io.to(recieverSocketId).emit('getMessage', data)
-                // io.emit("getMessage",data)
             }
-            // console.log(data)
-            // const user = getUser(data.recieverId);
-            // console.log(user)
-            // console.log(getUser(data.recieverId))
-            // io.to(userSocketMap[userId]).emit('getMessage', data)
         })
 
-// /////////////
     socket.on("disconnect",()=>{
         console.log("User disconnected",socket.id);
         delete userSocketMap[userId];
