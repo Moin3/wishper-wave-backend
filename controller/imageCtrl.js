@@ -8,7 +8,6 @@ export const uploadFile =async (request, response) => {
             return response.status(404).json("File not found");
         }
         const imageUrl = `${url}/Files/${request.file.filename}`;
-        console.log(imageUrl)
         response.status(200).json({imageUrl});
 
     }catch(error){
