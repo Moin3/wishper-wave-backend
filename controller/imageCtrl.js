@@ -1,6 +1,5 @@
 // const url = 'http://localhost:8000';
-// const url = 'https://wishper-wave-backend-1.onrender.com';
-const url = 'https://wishper-wave-backend-production.up.railway.app';
+const url = 'https://wishper-wave-backend-1.onrender.com';
 
 
 export const uploadFile =async (request, response) => {
