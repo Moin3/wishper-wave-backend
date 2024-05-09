@@ -12,7 +12,7 @@ This is the backend part of the Whisper Wave website. It is built using Express.
 
 
 ```bash
-  git clone https://github.com/Moin3/wishper-wave-backend.git
+  git clone https://github.com/dev-moinislam/wishper-wave-backend.git
   cd server
   npm i nstall
 ```
